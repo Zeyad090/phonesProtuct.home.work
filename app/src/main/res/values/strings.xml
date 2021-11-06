@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">phonesProtuct</string>
+    <string name="phoneProtuct1">product1 name:
+        Iphone 12  Price :4500 SR</string>,
+    <string name="phoneProtuct2">product2 name:
+        Samsung Galaxy S21 Ultra  Price :4500 SR</string>,
+    <string name="phoneProtuct3">product1 name:Xiaomi 11T Pro Price :2000 SR</string>,
+    <string name="phoneProtuct4">product1 name:Huawei Y6p Price :500 SR</string>,
+    <string name="phoneProtuct5">product1 name:Samsung Galaxy Z Flip3 Price :5000 SR</string>,
+    <string name="phoneProtuct6">product1 name:Iphone 13 pro max  Price :6000 SR</string>
+
+</resources>
