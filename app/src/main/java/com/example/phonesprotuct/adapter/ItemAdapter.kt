@@ -1,40 +1,60 @@
-package com.example.phonesprotuct.adapter
+package com.example.product_recycleview_home_work.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.phonesprotuct.R
-import com.example.phonesprotuct.model.phoneProtuct
+import com.example.phonesprotuct.ShowFragment
+import com.example.phonesprotuct.ShowFragmentDirections
 
-class ItemAdapter (private val context: Context,
-                   private val dataset:List<phoneProtuct>)
-    : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.item_title)
-        val imageView: ImageView = view.findViewById(R.id.item_image)
+import javax.sql.DataSource
 
-    }
+class SmartPhoneAdapter(private val context: ShowFragment, context1: Context) :
+    RecyclerView.Adapter<SmartPhoneAdapter.SmartPhoneViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item, parent, false)
+    private val dataSource = com.example.phonesprotuct.data.DataSource.smartPhone
 
-        return ItemViewHolder(adapterLayout)
-    }
-
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = dataset[position]
-        holder.textView.text = context.resources.getString(item.stringResourceId)
-        holder.imageView.setImageResource(item.imageResourceId)
+    class SmartPhoneViewHolder(view: View?) : RecyclerView.ViewHolder(view!!) {
+        val productImage: ImageView? = view?.findViewById(R.id.product_image)
+        val productName: TextView? = view?.findViewById(R.id.product_name)
+        val productPrice: TextView? = view?.findViewById(R.id.product_price)
+        val productIsVip: ImageView? = view?.findViewById(R.id.isVip_icon)
 
     }
 
-    override fun getItemCount():Int {
-return dataset.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SmartPhoneViewHolder {
+        return SmartPhoneViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
+        )
     }
+
+    @SuppressLint("ResourceAsColor")
+    override fun onBindViewHolder(holder: SmartPhoneViewHolder, position: Int) {
+        val item = dataSource[position]
+
+        holder.productImage?.setImageResource(item.productImage)
+        holder.productName?.text = context?.getString(item.productName)
+        holder.productPrice?.text = item.productPrice
+
+        if (item.isVip) {
+            holder.productIsVip?.visibility = View.VISIBLE
+        }
+
+
+// stopped her (Perform the Navigation Action**)===================================================================
+        holder.productImage?.setOnClickListener {
+
+            val action = ShowFragmentDirections.actionShowFragmentToBuyFragment( phoneInfo= holder.productName?.text.toString(),phoneImage =(item.productImage))
+            holder.itemView.findNavController().navigate(action)
+
+        }
+
+    }
+
+    override fun getItemCount(): Int = dataSource.size
 }

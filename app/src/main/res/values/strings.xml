@@ -1,12 +1,14 @@
 <resources>
-    <string name="app_name">phonesProtuct</string>
-    <string name="phoneProtuct1">product1 name:
-        Iphone 12  Price :4500 SR</string>,
-    <string name="phoneProtuct2">product2 name:
-        Samsung Galaxy S21 Ultra  Price :4500 SR</string>,
-    <string name="phoneProtuct3">product1 name:Xiaomi 11T Pro Price :2000 SR</string>,
-    <string name="phoneProtuct4">product1 name:Huawei Y6p Price :500 SR</string>,
-    <string name="phoneProtuct5">product1 name:Samsung Galaxy Z Flip3 Price :5000 SR</string>,
-    <string name="phoneProtuct6">product1 name:Iphone 13 pro max  Price :6000 SR</string>
+    <string name="app_name">product Recycle view</string>
+    <string name="Iphone_12_64GB">Iphone 12 64GB</string>
+    <string name="Samsung_Galaxy_S21_Ultra">Samsung Galaxy S21 Ultra</string>
+    <string name="Xiaomi_11T_Pro">"Xiaomi 11T Pro"</string>
+    <string name="Huawei_Y6p">Huawei Y6p</string>
+    <string name="Samsung_Galaxy_Z_Flip3">Samsung Galaxy Z Flip3</string>
+    <string name="Iphone_13">Iphone 13</string>
+    <string name="more_details">More Details</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

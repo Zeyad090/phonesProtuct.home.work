@@ -2,26 +2,32 @@ package com.example.phonesprotuct
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
-import com.example.phonesprotuct.adapter.ItemAdapter
-import com.example.phonesprotuct.data.Datasource
-
+import android.view.Window
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.phonesprotuct.R
+import com.example.phonesprotuct.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?)
+    private lateinit var navController: NavController
 
-    {
+    private lateinit var binding: ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        supportActionBar?.hide()
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
-        setContentView(R.layout.activity_main)
-        val myDataset = Datasource().loadphoneProtuct()
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.adapter = ItemAdapter(this, myDataset)
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
 
-
-        recyclerView.setHasFixedSize(true)
+        navController = navHostFragment.navController
+        setupActionBarWithNavController(navController)
     }
+
 }
