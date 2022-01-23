@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/naph_graph"
+    app:startDestination="@id/showFragment">
+
+    <fragment
+        android:id="@+id/showFragment"
+        android:name="com.example.phonesprotuct.ShowFragment"
+        android:label="fragment_show"
+        tools:layout="@layout/fragment_show" >
+        <action
+            android:id="@+id/action_showFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
+        <argument
+            android:name="phoneInfo"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/buyFragment"
+        android:name="com.example.phonesprotuct.BuyFragment"
+        android:label="BuyFragment" >
+        <argument
+            android:name="phoneInfo"
+            app:argType="string" />
+        <argument
+            android:name="phoneImage"
+            app:argType="integer" />
+    </fragment>
+</navigation>
